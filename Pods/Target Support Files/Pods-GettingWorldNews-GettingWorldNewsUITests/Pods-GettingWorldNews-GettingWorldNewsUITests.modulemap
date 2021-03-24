@@ -1,0 +1,6 @@
+framework module Pods_GettingWorldNews_GettingWorldNewsUITests {
+  umbrella header "Pods-GettingWorldNews-GettingWorldNewsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

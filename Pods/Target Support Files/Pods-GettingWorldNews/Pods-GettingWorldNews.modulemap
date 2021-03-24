@@ -1,0 +1,6 @@
+framework module Pods_GettingWorldNews {
+  umbrella header "Pods-GettingWorldNews-umbrella.h"
+
+  export *
+  module * { export * }
+}
