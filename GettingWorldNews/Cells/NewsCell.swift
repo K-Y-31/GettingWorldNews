@@ -17,12 +17,12 @@ class NewsCell: UICollectionViewCell {
             if let url = URL(string: articles?.urlToImage ?? "") {
                 Nuke.loadImage(with: url, into: ArticleImageView)
             }
+            if let publishedAt = articles?.publishedAt {
+                let date = self.stringFromDate(date: publishedAt, format: format)
+                ArticlePublishedAt.text = date
+            }
             ArticleTitleLabel.text = articles?.title
             ArticleDescipriton.text = articles?.description
-            
-            guard let publishedAt = articles?.publishedAt else { return }
-            let date = self.stringFromDate(date: publishedAt, format: format)
-            ArticlePublishedAt.text = date
         }
     }
     

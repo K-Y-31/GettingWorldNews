@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s0p-lO-ZN8">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="259-dn-mVk">
+            <objects>
+                <navigationController id="s0p-lO-ZN8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v5p-CB-cuT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y3h-jG-4G4" kind="relationship" relationship="rootViewController" id="VXT-fT-kPb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3KL-cx-bCf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-410" y="118"/>
+        </scene>
+        <!--Japan News-->
+        <scene sceneID="SGo-az-GcD">
+            <objects>
+                <viewController id="Y3h-jG-4G4" customClass="MainCollectionView" customModule="GettingWorldNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wep-ZW-TAJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HMP-J6-ygH" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="mjg-qg-W20"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oAL-lB-Fpk">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ac6-Dp-KaF">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KKv-AJ-zOI">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-Fk-xqk">
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wvw-t9-24a"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HMP-J6-ygH" firstAttribute="top" secondItem="wvw-t9-24a" secondAttribute="top" id="0uu-7h-3Cg"/>
+                            <constraint firstItem="wvw-t9-24a" firstAttribute="trailing" secondItem="ngT-Fk-xqk" secondAttribute="trailing" id="2xE-dd-p5H"/>
+                            <constraint firstItem="wvw-t9-24a" firstAttribute="trailing" secondItem="HMP-J6-ygH" secondAttribute="trailing" id="Nnu-ha-JGp"/>
+                            <constraint firstItem="wvw-t9-24a" firstAttribute="bottom" secondItem="ngT-Fk-xqk" secondAttribute="bottom" id="ZkV-el-Pl3"/>
+                            <constraint firstItem="ngT-Fk-xqk" firstAttribute="leading" secondItem="wvw-t9-24a" secondAttribute="leading" id="bkI-4p-Zdd"/>
+                            <constraint firstItem="ngT-Fk-xqk" firstAttribute="top" secondItem="HMP-J6-ygH" secondAttribute="bottom" id="peq-wG-8QC"/>
+                            <constraint firstItem="HMP-J6-ygH" firstAttribute="leading" secondItem="wvw-t9-24a" secondAttribute="leading" id="zEg-l1-MPB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Japan News" id="0DH-bm-Wea"/>
+                    <connections>
+                        <outlet property="buttonBarView" destination="HMP-J6-ygH" id="9vm-Kh-8aa"/>
+                        <outlet property="containerView" destination="ngT-Fk-xqk" id="Iyp-t5-1ex"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0hE-gQ-jkh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="515" y="125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

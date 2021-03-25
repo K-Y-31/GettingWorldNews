@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.4.1)
   - Nuke (9.3.0)
+  - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Nuke
+  - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Nuke
+    - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Nuke: 56a7266398951d9af3a897a71a7b662344915ec5
+  XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 16d742d10a3a1d41a5765fdb4e91dedf7c18e67c
+PODFILE CHECKSUM: 60e4f6072f62e93a58926f3ce1be04146eb7b8c7
 
 COCOAPODS: 1.10.1

@@ -16,22 +16,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="757" height="114"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qo0-Hy-Hh0">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news" translatesAutoresizingMaskIntoConstraints="NO" id="qo0-Hy-Hh0">
                         <rect key="frame" x="10" y="10" width="90" height="90"/>
-                        <color key="backgroundColor" red="0.0" green="0.96078431369999995" blue="0.0" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="qo0-Hy-Hh0" secondAttribute="height" multiplier="1:1" id="3Z8-im-HJo"/>
                             <constraint firstAttribute="width" constant="90" id="4Ca-2q-ejn"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjl-XX-JdN">
-                        <rect key="frame" x="110" y="41" width="637" height="43"/>
+                        <rect key="frame" x="110" y="40.5" width="637" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68L-Lu-krB">
-                        <rect key="frame" x="110" y="10" width="637" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68L-Lu-krB">
+                        <rect key="frame" x="110" y="10" width="637" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -67,4 +67,7 @@
             <point key="canvasLocation" x="264.49275362318843" y="-16.071428571428569"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="news" width="256" height="256"/>
+    </resources>
 </document>

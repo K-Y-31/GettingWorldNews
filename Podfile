@@ -6,6 +6,7 @@ target 'GettingWorldNews' do
   use_frameworks!
   pod 'Alamofire', '~>5.2'
   pod 'Nuke'
+  pod 'XLPagerTabStrip', '~> 9.0'
   # Pods for GettingWorldNews
 
   target 'GettingWorldNewsTests' do

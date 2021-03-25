@@ -7,12 +7,15 @@
 
 import UIKit
 import Alamofire
+import XLPagerTabStrip
 
-class NewsListViewController: UIViewController {
+class NewsListViewController: UIViewController{
     
     private let cell_Id = "cell_id"
     private var articles = [Article]()
+    var itemInfo: IndicatorInfo = "First"
 
+    
     @IBOutlet weak var NewsListCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -25,26 +28,20 @@ class NewsListViewController: UIViewController {
     }
     
     private func fetchNewsInfo() {
-        let baseUrl = "https://newsapi.org/v2/top-headlines?country=jp&category=technology&apiKey=bfae329457b14d42800541b5f8448f0d"
-        let request = AF.request(baseUrl)
-        request.responseJSON { (response) in
-            do {
-                guard let data = request.data else { return }
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                let value = try decoder.decode(NewsInfo.self, from: data)
-                self.articles = value.articles
-                self.NewsListCollectionView.reloadData()
-            }
-            catch {
-                print("Faield convert \(error)")
-            }
+        API.shared.request(path: .top, category: .technology, type: NewsInfo.self) { (Newsinfo) in
+            self.articles = Newsinfo.articles
+            self.NewsListCollectionView.reloadData()
         }
-        
     }
 }
 
 extension NewsListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let url = NSURL(string: articles[indexPath.row].url ?? "")
+        UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.view.frame.width
         return .init(width: width, height: 90)
@@ -58,6 +55,12 @@ extension NewsListViewController: UICollectionViewDelegate, UICollectionViewData
         let cell = NewsListCollectionView.dequeueReusableCell(withReuseIdentifier: cell_Id, for: indexPath) as! NewsCell
         cell.articles = articles[indexPath.row]
         return cell
+    }
+}
+
+extension NewsListViewController: IndicatorInfoProvider {
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return itemInfo
     }
 }
 
