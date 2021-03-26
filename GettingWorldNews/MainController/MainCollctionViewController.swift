@@ -26,7 +26,7 @@ class MainCollectionView: ButtonBarPagerTabStripViewController {
     private func setupUI() {
         settings.style.buttonBarBackgroundColor = UIColor.white
         settings.style.buttonBarItemBackgroundColor = UIColor.white
-        settings.style.buttonBarItemTitleColor = UIColor.lightGray
+        settings.style.buttonBarItemTitleColor = UIColor.black
         settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
         settings.style.selectedBarBackgroundColor = UIColor.black
         settings.style.selectedBarHeight = 2.0
