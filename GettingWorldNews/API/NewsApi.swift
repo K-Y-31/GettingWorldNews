@@ -11,22 +11,43 @@ import Alamofire
 class API {
     
     static let shared = API()
-    
-    private let baseurl = "https://newsapi.org/v2/"
-    private var params = [String:Any]()
+    private var url: String = ""
+//    private let baseurl = "https://newsapi.org/v2/"
+//    private var params = [String:Any]()
     
     func request<T: Decodable>(path: PathType, category: Category, type: T.Type, completion: @escaping (T) -> Void) {
-        var path = path.rawValue
-        if path == "top" {
-            path += "-headlines"
-        }
-        let url = "https://newsapi.org/v2/top-headlines?country=jp&category=technology&apiKey=bfae329457b14d42800541b5f8448f0d"
+//        var path = path.rawValue
         
-        let url2 = baseurl + path + "?"
-        var params = self.params
-        params["country"] = "jp"
-        params["apiKey"] = "bfae329457b14d42800541b5f8448f0d"
-        params["category"] = category.rawValue
+        let url_tech = "https://newsapi.org/v2/top-headlines?country=jp&category=technology&apiKey=bfae329457b14d42800541b5f8448f0d"
+        let url_business = "https://newsapi.org/v2/top-headlines?country=jp&category=business&apiKey=bfae329457b14d42800541b5f8448f0d"
+        let url_entertaiment = "https://newsapi.org/v2/top-headlines?country=jp&category=entertainment&apiKey=bfae329457b14d42800541b5f8448f0d"
+        let url_general = "https://newsapi.org/v2/top-headlines?country=jp&category=general&apiKey=bfae329457b14d42800541b5f8448f0d"
+        let url_health = "https://newsapi.org/v2/top-headlines?country=jp&category=health&apiKey=bfae329457b14d42800541b5f8448f0d"
+        let url_science = "https://newsapi.org/v2/top-headlines?country=jp&category=science&apiKey=bfae329457b14d42800541b5f8448f0d"
+        let url_sports = "https://newsapi.org/v2/top-headlines?country=jp&category=sports&apiKey=bfae329457b14d42800541b5f8448f0d"
+        
+        
+        if category.rawValue == Category.technology.rawValue {
+            url = url_tech
+        }
+        else if category.rawValue == Category.business.rawValue {
+            url = url_business
+        }
+        else if category.rawValue == Category.entertainment.rawValue {
+            url = url_entertaiment
+        }
+        else if category.rawValue == Category.general.rawValue {
+            url = url_general
+        }
+        else if category.rawValue == Category.science.rawValue {
+            url = url_science
+        }
+        else if category.rawValue == Category.sports.rawValue {
+            url = url_sports
+        }
+        else if category.rawValue == Category.health.rawValue {
+            url = url_health
+        }
         
         let request = AF.request(url)
         request.responseJSON { (response) in

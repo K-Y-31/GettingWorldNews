@@ -1,41 +1,39 @@
 //
-//  ViewController.swift
+//  ThirdViewController.swift
 //  GettingWorldNews
 //
-//  Created by 木本瑛介 on 2021/03/24.
+//  Created by 木本瑛介 on 2021/03/25.
 //
 
 import UIKit
-import Alamofire
 import XLPagerTabStrip
 
-class NewsListViewController: UIViewController{
+class NewsListbusinessViewController: UIViewController {
+     
+    @IBOutlet weak var NewsListBusinessCollectionView: UICollectionView!
     
-    private let cell_Id = "cell_id"
     private var articles = [Article]()
-    var itemInfo: IndicatorInfo = "First"
-
+    private let cell_Id = "cell_id"
     
-    @IBOutlet weak var NewsListCollectionView: UICollectionView!
-    
+    var ItemInfo: IndicatorInfo = "Business"
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        NewsListCollectionView.backgroundColor = .white
-        NewsListCollectionView.delegate = self
-        NewsListCollectionView.dataSource = self
-        NewsListCollectionView.register(UINib(nibName: "NewsCell", bundle: nil), forCellWithReuseIdentifier: cell_Id)
+        NewsListBusinessCollectionView.delegate = self
+        NewsListBusinessCollectionView.dataSource = self
+        NewsListBusinessCollectionView.register(UINib(nibName: "NewsCell", bundle: nil), forCellWithReuseIdentifier: cell_Id)
         fetchNewsInfo()
     }
     
     private func fetchNewsInfo() {
-        API.shared.request(path: .top, category: .technology, type: NewsInfo.self) { (Newsinfo) in
+        API.shared.request(path:.top, category: .business, type: NewsInfo.self) { (Newsinfo) in
             self.articles = Newsinfo.articles
-            self.NewsListCollectionView.reloadData()
+            self.NewsListBusinessCollectionView.reloadData()
         }
     }
 }
 
-extension NewsListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension NewsListbusinessViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let url = NSURL(string: articles[indexPath.row].url ?? "")
@@ -48,19 +46,18 @@ extension NewsListViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return articles.count
+        return self.articles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = NewsListCollectionView.dequeueReusableCell(withReuseIdentifier: cell_Id, for: indexPath) as! NewsCell
+        let cell = NewsListBusinessCollectionView.dequeueReusableCell(withReuseIdentifier: cell_Id, for: indexPath) as! NewsCell
         cell.articles = articles[indexPath.row]
         return cell
     }
 }
 
-extension NewsListViewController: IndicatorInfoProvider {
+extension NewsListbusinessViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return itemInfo
+        return ItemInfo
     }
 }
-
